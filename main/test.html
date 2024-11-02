@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoFit</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <style>
+        #map {
+            height: 400px;
+        }
+        .nav-tabs {
+            display: flex;
+        }
+        .nav-link {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    
+    <header class="navbar navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand mx-auto" href="index.html">
+             <span class="text-primary flex-shrink-0 me-2">
+             </span>Fitness Genie</a>
+      
+          <div class="d-flex"> 
+            <div class="form-check form-switch mode-switch me-3 me-lg-4 ms-auto" data-bs-toggle="mode"> </div> 
+            <button class="navbar-toggler ms-sm-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+      
+         <nav class="collapse navbar-collapse" id="navbarNav">
+           <ul class="navbar-nav ms-auto" style="--ar-scroll-height: 520px;"> <li class="nav-item ">
+            <a class="nav-link" href="final.html">BMI Calculator</a></li>
+             <li class="nav-item"><a class="nav-link" href="calorie.html">Caloric Needs</a></li>
+             <li class="nav-item"><a class="nav-link" href="exercise.html">Exercise Guide</a></li>
+             <li class="nav-item"><a class="nav-link" href="test.html">Tests</a></li>
+             <li class="nav-item"><a class="nav-link" href="./index.html">Home</a></li>
+    
+           </ul>
+          </nav>
+        </div>
+      </header>
+
+  <div class="container mt-5">
+<div class="container mt-5">
+    <div id="test" class="card">
+        <div class="card-body">
+            <h5 class="card-title">The Importance of Health Tests</h5>
+            <p class="card-text">
+                Regular health tests play a crucial role in maintaining and improving your well-being. Here are some reasons why health-related tests are useful:
+
+                <ul>
+                    <li><strong>Early Detection of Health Issues:</strong> Many health conditions can be detected early through routine tests, allowing for timely intervention and treatment.</li>
+                    <li><strong>Preventive Healthcare:</strong> Tests help identify risk factors, enabling healthcare professionals to provide guidance on preventive measures and lifestyle changes.</li>
+                    <li><strong>Baseline for Monitoring:</strong> Establishing baseline health parameters through tests allows for ongoing monitoring of changes over time, aiding in the detection of deviations from the norm.</li>
+                    <li><strong>Personalized Treatment Plans:</strong> Test results provide valuable information for healthcare providers to tailor treatment plans based on an individual's specific health profile.</li>
+                    <li><strong>Empowerment Through Knowledge:</strong> Understanding one's health through tests empowers individuals to make informed decisions about their lifestyle, diet, and overall well-being.</li>
+                </ul>
+
+                Regular check-ups and recommended screenings are essential components of a proactive approach to healthcare. Consult with your healthcare provider to determine the appropriate tests for your age, gender, and risk factors.
+            </p>
+        </div>
+    </div>
+</div>
+  <h2>Want to Know Hospitals near You?</h2>
+    
+  <!-- Add a text box, a button -->
+  <div class="row">
+    <div class="col-md-6 mb-2">
+        <label class="form-label">Location Preference:</label>
+        <select class="form-select" id="locationPreference">
+            <option value="gps">GPS</option>
+            <option value="manual">Manual</option>
+        </select>
+    </div>
+</div>
+
+<!-- Manual location input (displayed when manual method is selected) -->
+<div class="row mb-2" id="manualLocationInput" style="display: none;">
+    <div class="col-md-6">
+        <label for="cityInput" class="form-label">Enter City:</label>
+        <input type="text" class="form-control" id="cityInput">
+    </div>
+</div>
+
+<!-- Search button -->
+<div class="row mb-2">
+    <div class="col-md-6">
+        <button id="showCityButton" class="btn btn-primary" onclick="showCity()">Show City</button>
+    </div>
+</div>
+
+<!-- OpenLayers map container -->
+<div id="map"></div>
+</div>
+
+
+
+  
+  <footer class="footer">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4 text-white">
+                <h5>Contact Us</h5>
+                <ul class="list-unstyled">
+                    <li>Bennett University</li>
+                    <li>Greater Noida, Uttar Pradesh</li>
+                    <li>Phone: 7388109688</li>
+                    <li>Email: Fitnessgenie.official@gmail.com</li>
+                </ul>
+            </div>
+            <div class="col-md-4 text-white">
+                <h5>Connect With Us</h5>
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="#" class="text-white">Facebook</a></li>
+                    <li class="list-inline-item"><a href="#" class="text-white">Instagram</a></li>
+                    <li class="list-inline-item"><a href="#" class="text-white">Twitter</a></li>
+                    <!-- Add more social media links here -->
+                </ul>
+            </div>
+            <div class="col-md-4">
+              <h5 class="text-white">Subscribe to Our Newsletter</h5>
+              <div class="input-group mb-0">
+                  <input type="email" class="form-control rounded-3" id="newsletterEmail" placeholder="Enter your email" aria-label="Enter your email" aria-describedby="button-addon2">
+              </div>
+              <div class="text-center">
+                  <button class="btn btn-primary" type="button" id="newsletterButton">Subscribe</button>
+              </div>
+              <p id="newsletterMessage" class="text-white mt-2"></p>
+          </div>
+            
+  </footer>
+
+
+
+</body>
+<script>
+    var map = L.map('map').setView([0, 0], 2); // Set initial coordinates and zoom level
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    function showCity() {
+        var locationPreference = document.getElementById('locationPreference').value;
+        var cityName = document.getElementById('cityInput').value;
+
+        if (locationPreference === 'gps') {
+            // Use geolocation API to get current location
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    var lat = position.coords.latitude;
+                    var lon = position.coords.longitude;
+                    map.setView([lat, lon], 13);
+
+                    // Use Overpass API to directly query hospitals
+                    var overpassUrl = 'https://overpass-api.de/api/interpreter?data=[out:json];node(around:5000,' + lat + ',' + lon + ')["amenity"="hospital"];out;';
+
+                    fetch(overpassUrl)
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.elements.length > 0) {
+                                var bounds = new L.LatLngBounds();
+
+                                data.elements.forEach(hospital => {
+                                    var marker = L.marker([hospital.lat, hospital.lon]).addTo(map);
+                                    marker.bindPopup('<b>' + hospital.tags.name + '</b><br>' + hospital.tags.addr);
+                                    bounds.extend([hospital.lat, hospital.lon]);
+                                });
+
+                                map.fitBounds(bounds);
+                            } else {
+                                alert('No hospitals found near your location');
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error fetching hospital data:', error);
+                        });
+                }, function () {
+                    alert('Geolocation permission denied. Please enter the city manually.');
+                });
+            } else {
+                alert('Geolocation is not supported by this browser. Please enter the city manually.');
+            }
+        } else if (locationPreference === 'manual') {
+            if (cityName) {
+                // Use Nominatim API for geocoding
+                var geocodeUrl = 'https://nominatim.openstreetmap.org/search?format=json&q=' + cityName;
+
+                fetch(geocodeUrl)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.length > 0) {
+                            var lat = data[0].lat;
+                            var lon = data[0].lon;
+                            map.setView([lat, lon], 13);
+
+                            // Use Overpass API to directly query hospitals
+                            var overpassUrl = 'https://overpass-api.de/api/interpreter?data=[out:json];node(around:5000,' + lat + ',' + lon + ')["amenity"="hospital"];out;';
+
+                            fetch(overpassUrl)
+                                .then(response => response.json())
+                                .then(data => {
+                                    if (data.elements.length > 0) {
+                                        var bounds = new L.LatLngBounds();
+
+                                        data.elements.forEach(hospital => {
+                                            var marker = L.marker([hospital.lat, hospital.lon]).addTo(map);
+                                            marker.bindPopup('<b>' + hospital.tags.name + '</b><br>' + hospital.tags.addr);
+                                            bounds.extend([hospital.lat, hospital.lon]);
+                                        });
+
+                                        map.fitBounds(bounds);
+                                    } else {
+                                        alert('No hospitals found in the city');
+                                    }
+                                })
+                                .catch(error => {
+                                    console.error('Error fetching hospital data:', error);
+                                });
+                        } else {
+                            alert('City not found');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error fetching data:', error);
+                    });
+            } else {
+                alert('Please enter a city name');
+            }
+        }
+    }
+
+    // Show/hide manual location input based on selection
+    document.getElementById('locationPreference').addEventListener('change', function () {
+        var manualLocationInput = document.getElementById('manualLocationInput');
+        if (this.value === 'manual') {
+            manualLocationInput.style.display = 'block';
+        } else {
+            manualLocationInput.style.display = 'none';
+        }
+    });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</html>

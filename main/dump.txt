@@ -1,0 +1,220 @@
+<div class="container mt-4">
+  <div class="row">
+      <!-- Card for BMI Calculation -->
+      <div class="col-md-4">
+          <div class="card">
+              
+              <div class="card-body">
+                  <h5 class="card-title">BMI Calculation</h5>
+                  <p class="card-text">Discover your Body Mass Index and understand your health baseline.</p>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Card for Exercise Recommendations -->
+      <div class="col-md-4">
+          <div class="card">
+              
+              <div class="card-body">
+                  <h5 class="card-title">Exercise Recommendations</h5>
+                  <p class="card-text">Get personalized exercise recommendations tailored to your BMI and fitness goals.</p>
+              </div>
+          </div>
+      </div>
+
+      <!-- Card for Calorie Intake Guidance -->
+      <div class="col-md-4">
+          <div class="card">
+              
+              <div class="card-body">
+                  <h5 class="card-title">Calorie Intake Guidance</h5>
+                  <p class="card-text">Learn how to maintain a balanced diet and fuel your fitness journey with the right calories.</p>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+</br>
+</br>
+
+
+
+
+
+
+
+chippi..
+<div class="banner" style="position: relative;">
+  <img src="./images/banner/banner.png" alt="Banner Image" class="img-fluid">
+  <img src="./images/banner/BMI.png" alt="Cutout 1" class="cutout" height="100px" width="275px" style="position: absolute; top: 100px; right: 625px;">
+  <div class="glow" id="a"></div>
+  <img src="./images/banner/calories required.png" alt="Cutout 2" height="100px" width="275px" class="cutout" style="position: absolute; top: 300px; right: 475px;">
+  <div class="glow" id="b"></div>
+  <img src="./images/banner/Exercise Guide.png" alt="Cutout 3" height="100px" width="275px" class="cutout" style="position: absolute; top: 500px; right: 625px;">
+  <div class="glow" id="c"></div>
+</div>
+
+css 
+.banner {
+  position: relative;
+}
+
+.glow {
+  position: absolute;
+  
+  border-radius: 50%; /* Create a semicircle shape */
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.519) 0%, #D1BB9E);
+  animation: glow-animation 0.000001s ease-in-out infinite alternate; /* Apply the glow animation */
+}
+
+
+
+@keyframes glow-animation {
+  0% {
+    box-shadow: 0 0 20px 20px rgba(255, 255, 255, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 50px 50px rgba(255, 255, 255, 0);
+  }
+}
+
+#a{top: 75px; /* Adjust top position according to the first cutout */
+  right: 585px; /* Adjust right position according to the second cutout */
+  width: 350px; /* Adjust width to cover the distance between the cutouts */
+  height: 150px; /* Adjust height to fit the desired glow size */
+}
+#b{top: 275px; /* Adjust top position according to the first cutout */
+  right: 435px; /* Adjust right position according to the second cutout */
+  width: 350px; /* Adjust width to cover the distance between the cutouts */
+  height: 150px; /* Adjust height to fit the desired glow size */
+}
+#c{top: 475px; /* Adjust top position according to the first cutout */
+  right: 590px; /* Adjust right position according to the second cutout */
+  width: 350px; /* Adjust width to cover the distance between the cutouts */
+  height: 150px; /* Adjust height to fit the desired glow size */
+}
+
+@keyframes glow-animation {
+  0% {
+      box-shadow: 0 0 20px 20px rgba(255, 255, 255, 0.5);
+  }
+  100% {
+      box-shadow: 0 0 50px 50px rgba(255, 255, 255, 0);
+  }
+}
+
+.strip {
+  width: 80px; /* Adjust width as needed */
+  height: 300px; /* Adjust height to fill the space between the cutouts */
+  background-color: #D1BB9E; /* Set the background color */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container my-9">
+        <div class="p-6.5 text-center bg-body-tertiary rounded-3">
+          <video autoplay muted loop id="bg-video">
+            <source src="videos/fit.mp4" type="video/mp4">
+        </video>
+        <h1 class="text-body-emphasis">Know your BMI</h1>
+          <p class="col-lg-8 mx-auto fs-5 text-muted">
+            
+"Empower Your Health Journey: Uncover the True You with BMI, the Starting Point to Your Fit Future. Your BMI is Your Map to a Healthier, Happier You!"</p>
+          <div class="d-inline-flex gap-2 mb-5">
+            <a href="final.html"><button class="d-inline-flex align-items-center btn btn-primary btn-lg px-5 rounded-pill" id="myButton" type="button">
+              
+Calculate BMI
+              <svg width="24" height="24"><use xlink:href="#arrow-right-short"></use></svg>
+            </button></a>
+            <p>
+            <h6>Already knew that?<hr>Check out the <a href="exercise.html">Exercises</a></a></h6>
+          </p>
+        </div>
+          
+       
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+      <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class="active" aria-current="true"></button>
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item">
+            <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></svg>
+            <div class="container">
+              <div class="carousel-caption text-start">
+                <h1>Shilpa Shetty Kundra</h1>
+                <p> "Yoga may look slow but it's a killer. If you're regular with it, you'll never have weight issues."</p>
+                
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item active">
+            <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></svg>
+            <div class="container">
+              <div class="carousel-caption">
+                <h1>Mahatma Gandhi</h1>
+                <p> "It is health that is real wealth and not pieces of gold and silver."</p>
+                
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></svg>
+            <div class="container">
+              <div class="carousel-caption text-end">
+                <h1>Virat Kohli</h1>
+                <p> "Your body is your temple, keep it pure and clean for the soul to reside in."</p>
+               

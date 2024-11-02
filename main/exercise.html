@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoFit</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="navbar navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand mx-auto" href="index.html">
+             <span class="text-primary flex-shrink-0 me-2">
+             </span>Fitness Genie</a>
+      
+          <div class="d-flex"> 
+            <div class="form-check form-switch mode-switch me-3 me-lg-4 ms-auto" data-bs-toggle="mode"> </div> 
+            <button class="navbar-toggler ms-sm-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+      
+         <nav class="collapse navbar-collapse" id="navbarNav">
+           <ul class="navbar-nav ms-auto" style="--ar-scroll-height: 520px;"> <li class="nav-item ">
+            <a class="nav-link" href="final.html">BMI Calculator</a></li>
+             <li class="nav-item"><a class="nav-link" href="calorie.html">Caloric Needs</a></li>
+             <li class="nav-item"><a class="nav-link" href="exercise.html">Exercise Guide</a></li>
+             <li class="nav-item"><a class="nav-link" href="test.html">Tests</a></li>
+             <li class="nav-item"><a class="nav-link" href="./index.html">Home</a></li>
+    
+           </ul>
+          </nav>
+        </div>
+      </header>
+  <section id="exercise-guide" class="page page-dark">
+    
+ 
+
+    <h4>
+      "Neglect the weekly plan, and watch dreams wither in the shadow of untapped potential. Discipline is the stage, and success demands its captivating performance."</h4>
+    <h1>Weekly Exercise Plan</h1>
+
+    <table>
+        <tr>
+            <th>Day</th>
+            <th>Morning</th>
+            <th>Afternoon</th>
+            <th>Evening</th>
+        </tr>
+        <tr>
+            <td>Monday</td>
+            <td>Air Squat<br>Pushups<br>Barbell Row<br>Jumping Jacks</td>
+            <td>Bench Press<br>Lunges<br>Leg Curl<br>Plank</td>
+            <td>Deadlift<br>High Knees<br>Shoulder Press<br>Bicep Curl</td>
+        </tr>
+        <tr>
+            <td>Tuesday</td>
+            <td>Cardio (Running)<br>Pullups<br>Tricep Dips<br>Side Plank</td>
+            <td>Cable Crossover<br>Front Squat<br>Skull Crusher<br>Mountain Climbers</td>
+            <td>Rest</td>
+        </tr>
+        <tr>
+            <td>Wednesday</td>
+            <td>Jump Squat<br>Dumbbell Curl<br>Plank<br>Russian Twist</td>
+            <td>Wall Sit<br>Lat Pulldown<br>Calf Raise<br>Hammer Curl</td>
+            <td>Cardio (Cycling)<br>Leg Extension<br>Incline Bench Press<br>Side Plank</td>
+        </tr>
+        <tr>
+            <td>Thursday</td>
+            <td>Cardio (Swimming)<br>Overhead Press<br>Front Raise<br>Bent-Over Row</td>
+            <td>Chair Dips<br>Z-Bar Curl<br>Side Plank<br>Lateral Raises</td>
+            <td>Rest</td>
+        </tr>
+        <tr>
+            <td>Friday</td>
+            <td>SL Deadlift<br>Burpees<br>Crunches<br>Incline Dumbbell Press</td>
+            <td>Cable Pullover<br>Leg Press<br>Shrugs<br>Plank</td>
+            <td>Cardio (HIIT)<br>Push Press<br>High Knees<br>Bicycle Crunches</td>
+        </tr>
+        <tr>
+            <td>Saturday</td>
+            <td>Box Jumps<br>Seated Row<br>Tricep Extension<br>Side Plank</td>
+            <td>Cardio (Elliptical)<br>Sumo Deadlift<br>Oblique Crunches<br>Face Pulls</td>
+            <td>Rest</td>
+        </tr>
+        <tr>
+            <td>Sunday</td>
+            <td>Rest</td>
+            <td>Rest</td>
+            <td>Rest</td>
+        </tr>
+    </table>
+  </br>
+</br>
+</br>
+
+    <h1>EXERCISE GUIDE</h1><br />
+    <p>Select an exercise to learn how to do it.</p><br /><hr /><br />
+    <select id="exercise-select" aria-placeholder="Select an exercise">
+      <option value="none" selected disabled hidden>Select an exercise</option>
+      <option value="air-squat">Air Squat</option>
+      <option value="barbell-row">Barbell Row</option>
+      <option value="bench-press">Bench Press</option>
+      <option value="burpee">Burpees</option>
+      <option value="cable-cross">Cable Crossover</option>
+      <option value="cable-pullover">Cable Pullover</option>
+      <option value="calf-raise">Calf Raise</option>
+      <option value="chair-dips">Chair Dips</option>
+      <option value="clean-and-press">Clean and Press</option>
+      <option value="deadlift">Deadlift</option>
+      <option value="decline-pushup">Decline Pushups</option>
+      <option value="dumbbell-curl">Dumbbel Curl</option>
+      <option value="front-raise">Front Raises</option>
+      <option value="front-squat">Front Squat</option>
+      <option value="hammer-curl">Hammer Curl</option>
+      <option value="high-knee">High Knees</option>
+      <option value="incline-bench-press">Incline Bench Press</option>
+      <option value="incline-dumbbell-press">Incline Dumbbell Bench Press</option>
+      <option value="jumping-jack">Jumping Jacks</option>
+      <option value="jump-squat">Jump Squat</option>
+      <option value="lateral-raise">Lateral Raises</option>
+      <option value="lat-pulldown">Lat Pulldown</option>
+      <option value="leg-curl">Leg Curl</option>
+      <option value="leg-extension">Leg Extension</option>
+      <option value="lunge">Lunge</option>
+      <option value="muscle-up">Muscle Up</option>
+      <option value="overhead-press">Overhead Press</option>
+      <option value="overhead-tricep">Overhead Tricep Extension</option>
+      <option value="pullup">Pullup</option>
+      <option value="pushup">Pushups</option>
+      <option value="shrug">Shrugs</option>
+      <option value="skull-crusher">Skull Crusher</option>
+      <option value="sl-deadlift">SL Deadlift</option>
+      <option value="squat">Squat</option>
+      <option value="squat-clean-and-press">Squat Clean and Press</option>
+      <option value="wall-sit">Wall Sit</option>
+      <option value="z-bar-curl">Z-Bar Curl</option> </select
+    ><br /><br />
+    <span class="btn btn-blue" id="show-exercise">Show</span><br /><br /><br />
+    <img id="exercise-pic" src="images/exercise.png" alt="exercise" height="360px" />
+      
+  </section>
+  
+
+  <script src="exercise.js"></script>
+  <footer class="footer ">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4 text-white">
+                <h5>Contact Us</h5>
+                <ul class="list-unstyled">
+                    <li>Bennett University</li>
+                    <li>Greater Noida, Uttar Pradesh</li>
+                    <li>Phone: 7388109688</li>
+                    <li>Email: Fitnessgenie.official@gmail.com</li>
+                </ul>
+            </div>
+            <div class="col-md-4 text-white">
+                <h5>Connect With Us</h5>
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="#" class="text-white">Facebook</a></li>
+                    <li class="list-inline-item"><a href="#" class="text-white">Instagram</a></li>
+                    <li class="list-inline-item"><a href="#" class="text-white">Twitter</a></li>
+                    <!-- Add more social media links here -->
+                </ul>
+            </div>
+            <div class="col-md-4">
+              <h5 class="text-white">Subscribe to Our Newsletter</h5>
+              <div class="input-group mb-0">
+                  <input type="email" class="form-control rounded-3" id="newsletterEmail" placeholder="Enter your email" aria-label="Enter your email" aria-describedby="button-addon2">
+              </div>
+              <div class="text-center">
+                  <button class="btn btn-primary" type="button" id="newsletterButton">Subscribe</button>
+              </div>
+              <p id="newsletterMessage" class="text-white mt-2"></p>
+          </div>
+            
+  </footer> 
+  </body>
+  
+  </html>

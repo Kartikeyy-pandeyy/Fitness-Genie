@@ -1,0 +1,105 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+  }
+   body {
+   background-color: #C0C0C0FF !important ;
+    align-items: center;
+
+  }
+  h1 {
+    margin-bottom: 8%;
+    text-align: center;
+    color : black !important;
+  }
+  p {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #000;
+    line-height: 0.1em;
+  }
+  
+  p span {
+    background:#fff;
+    padding:0 10px;
+  }
+  input {
+    margin-bottom: 3%;
+  }
+  
+  input:last-of-type {
+    margin-bottom: 0;
+  }
+  
+  input, button {
+    padding: 3%;
+    width: 100%;
+  }
+  .login-container {
+    background-color: whitesmoke;
+    padding: 7%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
+    /* horizontal align */
+    width: 40vw;
+    margin-left: 30vw;
+    /* vertical align */
+    height: 70vh;
+    margin-top: 15vh;
+  
+    /* Add z-index and position for elevation */
+    position: relative; /* Required for z-index */
+    z-index: 2; 
+    
+  }
+
+  .login-container #main { /* Target the 'main' div */
+    display: flex;
+    flex-direction: column;  /* Stack items vertically */
+    align-items: center;     /* Center horizontally */
+  }
+  #create-acct {
+    display: none;
+  }
+
+  button:hover {
+    cursor: pointer;
+    opacity: 0.8;
+    transition: 0.3s;
+  }
+  
+  #submit, #create-acct-btn {
+    background-color: #0583D2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-top: 5%;
+  
+    /* Changes for automatic sizing */
+    display: inline-block; /* Treat it like an inline element, but block-level */
+    padding: 0.5em 1em;    /* Add padding - adjust values as needed */
+    width: auto;
+    
+  }
+  
+  #return-btn {
+    background: none;
+    color: grey;
+    text-decoration: underline;
+    border: none;
+    margin-top: 3%;
+  }
+  
+  #sign-up {
+    border: none;
+    border-radius: 5px;
+    display: inline-block; /* Treat it like an inline element, but block-level */
+    padding: 0.5em 1em;    /* Add padding - adjust values as needed */
+    width: auto;
+  }
+  
+
+
